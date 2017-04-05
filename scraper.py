@@ -9,6 +9,6 @@ from bs4 import BeautifulSoup # used to scrape data from webpages
 
 soup = BeautifulSoup(urllib2.urlopen("http://www.bbc.co.uk/sport/football/tables", "lxml").read()) # reads target url
 
-for row in soup('table', {'class': 'table-stats'})[0].tbody('tr'): # finds table with class = 'table-stats', extracts information contained in the body(tbody) and tags(tr)
+for row in soup('table', {'class': 'table-stats'})[0].tbody('tr'): # finds table with class = 'table-stats', extracts information from the body(tbody) and tags(tr)
     tds = row('td')
     print tds[2].string, tds[10].string # displays team and total points 
